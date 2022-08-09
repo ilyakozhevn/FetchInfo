@@ -11,7 +11,11 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        Fetcher.getCurrencyInfo(from: "https://api.coinbase.com/v2/currencies")
+        
+        for link in Link.allCases {
+            Fetcher.getCompanyInfo(from: link.rawValue)
+        }
     }
 
 
